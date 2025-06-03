@@ -1,14 +1,25 @@
 import React from "react";
-import { ButtonProps } from "./Button.props";
+
+type Variant =
+  | "primary"
+  | "success"
+  | "danger"
+  | "warning"
+  | "secondary"
+  | "tertiary";
+
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: Variant;
+  children: React.ReactNode;
+}
 
 const Button: React.FC<ButtonProps> = ({
+  variant = "primary",
   children,
-  variant,
-  onClick,
   ...props
 }) => {
   return (
-    <button onClick={onClick} {...props} className={`button-${variant}`}>
+    <button className={`button button-${variant}`} {...props}>
       {children}
     </button>
   );

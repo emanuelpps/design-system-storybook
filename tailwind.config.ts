@@ -1,32 +1,31 @@
-// tailwind.config.js
 export default {
   theme: {
-    components: {
-      button: {
-        base: `
-          inline-flex items-center justify-center 
-          font-semibold rounded-md transition-colors 
-          cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed
-        `,
-        variants: {
-          primary: `
-            bg-primary-500 text-white
-            hover:bg-primary-600
-          `,
-          secondary: `
-            bg-secondary-500 text-white
-            hover:bg-secondary-600
-          `,
-          outline: `
-            border border-gray-300 bg-transparent
-            hover:bg-gray-50
-          `,
+    tokens: {
+      buttons: {
+        primary: {
+          bg: "#FF5722",
+          text: "#FFFFFF",
         },
-        sizes: {
-          sm: `px-4 py-2 text-sm`,
-          md: `px-5 py-2.5 text-base`,
-          lg: `px-6 py-3 text-lg`,
+        success: {
+          bg: "#22C55E",
+          text: "#FFFFFF",
         },
+        danger: {
+          bg: "#EF4444",
+          text: "#FFFFFF",
+        },
+      },
+    },
+    extend: {
+      colors: {
+        "button-primary": "{buttons.primary.bg}",
+        "button-success": "{buttons.success.bg}",
+        "button-danger": "{buttons.danger.bg}",
+      },
+      textColor: {
+        "button-primary": "{buttons.primary.text}",
+        "button-success": "{buttons.success.text}",
+        "button-danger": "{buttons.danger.text}",
       },
     },
   },

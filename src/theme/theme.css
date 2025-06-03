@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@theme {
+  colors: {
+    "button-primary": #FF5722;
+    "button-success": #22C55E;
+    "button-danger": #EF4444;
+    "button-warning": #F59E0B;
+    "button-secondary": #4CAF50;
+    "button-tertiary": #2196F3;
+    "button-text": #FFFFFF;
+    "input-border": #CBD5E0;
+    "input-bg": #FFFFFF;
+    "input-text": #111827;
+  };
+
+  spacing: {
+    sm: 0.5rem;
+    md: 1rem;
+    lg: 1.5rem;
+  };
+}
