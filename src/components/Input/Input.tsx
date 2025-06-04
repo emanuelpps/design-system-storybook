@@ -1,10 +1,20 @@
 import React from "react";
+import styled from "styled-components";
+import { inputVariants } from "./styles/Variants";
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
+type Variant = keyof typeof inputVariants;
 
-const Input: React.FC<InputProps> = (props) => {
-  return <input className="input" {...props} />;
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  variant?: Variant;
+}
+
+const StyledInput = styled.input<{ $variant: Variant }>`
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  ${({ $variant }) => inputVariants[$variant]}
+`;
+
+export const Input: React.FC<InputProps> = ({ variant = "default", ...props }) => {
+  return <StyledInput $variant={variant} {...props} />;
 };
-
-export default Input;
