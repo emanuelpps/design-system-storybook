@@ -1,18 +1,25 @@
+// Select.tsx
 import React from "react";
+import { StyledSelect } from "./Styles/Variants";
 
 interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   options: { value: string; label: string }[];
+  variant?: "primary" | "secondary" | "ghost" | "error";
 }
 
-const Select: React.FC<SelectProps> = ({ options, ...props }) => {
+const Select: React.FC<SelectProps> = ({
+  options,
+  variant = "primary",
+  ...props
+}) => {
   return (
-    <select className="select" {...props}>
+    <StyledSelect $variant={variant} {...props}>
       {options.map((opt) => (
         <option key={opt.value} value={opt.value}>
           {opt.label}
         </option>
       ))}
-    </select>
+    </StyledSelect>
   );
 };
 

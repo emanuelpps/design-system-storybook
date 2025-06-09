@@ -7,18 +7,46 @@ const meta: Meta<typeof Select> = {
   argTypes: {
     options: { control: "object" },
     disabled: { control: "boolean" },
+    variant: {
+      control: "select",
+      options: ["primary", "secondary", "ghost", "error"],
+    },
   },
 };
 
 export default meta;
 type Story = StoryObj<typeof Select>;
 
+const commonOptions = [
+  { value: "burger", label: "Burger" },
+  { value: "fries", label: "Fries" },
+  { value: "drink", label: "Drink" },
+];
+
 export const Default: Story = {
   args: {
-    options: [
-      { value: "burger", label: "Burger" },
-      { value: "fries", label: "Fries" },
-      { value: "drink", label: "Drink" },
-    ],
+    options: commonOptions,
+    variant: "primary",
+  },
+};
+
+export const Secondary: Story = {
+  args: {
+    options: commonOptions,
+    variant: "secondary",
+  },
+};
+
+export const Ghost: Story = {
+  args: {
+    options: commonOptions,
+    variant: "ghost",
+  },
+};
+
+export const Error: Story = {
+  args: {
+    options: commonOptions,
+    variant: "error",
   },
 };
