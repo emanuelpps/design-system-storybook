@@ -1,4 +1,3 @@
-// Select.tsx
 import React from "react";
 import { StyledSelect } from "./Styles/Variants";
 
