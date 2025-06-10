@@ -1,54 +1,56 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🎨 Mini Design System - React + styled-components
 
-Currently, two official plugins are available:
+This small Design System includes reusable and styled components for inputs, selects, and buttons. It is built with **React**, **TypeScript**, and **styled-components**, using a variant-based approach to maintain visual consistency.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 📦 Included Components
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### ✅ `Button`
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+Reusable button component with variant support.
+
+```tsx
+import { Button } from "./components/Button";
+
+<Button variant="primary">Save</Button>
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+**Available variants:**  
+`primary`, `secondary`, `ghost`, `error`, etc.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+### ✅ `Input`
+
+Input field with customizable styles based on variant.
+
+```tsx
+import { Input } from "./components/Input";
+
+<Input placeholder="Enter text..." variant="default" />
 ```
+
+**Available variants:**  
+Based on the definitions in `inputVariants`.
+
+---
+
+### ✅ `Select`
+
+Styled select component with dynamic options.
+
+```tsx
+import Select from "./components/Select";
+
+<Select
+  options={[
+    { value: "js", label: "JavaScript" },
+    { value: "ts", label: "TypeScript" },
+  ]}
+  variant="secondary"
+/>
+```
+
+---
